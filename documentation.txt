@@ -1,31 +1,45 @@
 Technical Documentation （日本語版は下記を参照）
-- AI
-Utility system scored via weighted parameters on the state of the board
-Chose to score on the state of the board instead of individual character actions as interactions between characters and environment is crucial
-Scoring on the state of the board also allows for easier expansion into the use of minimax algorithm and reinforcement learning in the future
 
-UnitBase class created for use with AI related computation as simulations does not require use of MonoBehaviour and Unity gameobjects
+AI
+Scoring
+- Utility system scored via weighted parameters on the state of the board
+- Chose to score on the state of the board instead of individual character actions as interactions between characters and environment is crucial
+- Scoring on the state of the board also allows for easier expansion into the use of minimax algorithm and reinforcement learning in the future
 
-- Miscellaneous
-When calculating a unit's reachable tiles, Breadth-First-Search(BFS) algorithm was chosen over Depth-First-Search(DFS) algorithm to miminize recomputation.
-For visualization, imagine DFS is processed on the north tile and when it reaches the east tile, DFS will process it with less remaining cost as compared to BFS.
- 
-TileInfo class inherits from TileBase in order to add custom tile properties such as cost, isTraversable, etc
+Structure
+- UnitBase class created for use with AI related computation as simulations does not require use of MonoBehaviour and Unity gameobjects
+
+
+
+Miscellaneous
+Unit's reachable tiles algorithm
+- When calculating a unit's reachable tiles, Breadth-First-Search(BFS) algorithm was chosen over Depth-First-Search(DFS) algorithm to miminize recomputation.
+- For visualization, imagine DFS is processed on the north tile and when it reaches the east tile, DFS will process it with less remaining cost as compared to BFS.
+
+Tilemap 
+- TileInfo class inherits from TileBase in order to add custom tile properties such as cost, isTraversable, etc
 
 ====================================================================================================
 
 技術ドキュメント
-ー　AI
-ユーティリティシステムを使用して、ボードの状態に基づいて重み付けされたパラメータでスコアリングする。
-キャラクターとボードの環境の交流が重要であるため、個々のキャラクターの行動ではなく、ボードの状態に基づいてスコアを付けることにしました。
-ボードの状態に基づいてスコアリングすることで、将来はミニマックスアルゴリズムや強化学習の使用への拡張が容易になります。
 
-AIシミュレーションではMonoBehaviourとUnityゲームオブジェクトを使用する必要がないため、AI関連の計算用に特化したUnitBaseクラスが作成されました。
+AI
+スコアリング
+- ユーティリティシステムを使用して、ボードの状態に基づいて重み付けされたパラメータでスコアリングする。
+- キャラクターとボードの環境の交流が重要であるため、個々のキャラクターの行動ではなく、ボードの状態に基づいてスコアを付けることにしました。
+- ボードの状態に基づいてスコアリングすることで、将来はミニマックスアルゴリズムや強化学習の使用への拡張が容易になります。
 
-ー　その他
-ユニットの到達可能なタイルを計算する際には、再計算を最小限に抑えるため、深さ優先探索（DFS）アルゴリズムより幅優先探索（BFS）アルゴリズムが選択されました。
-視覚化のため、例えDFSが北のタイルから処理され、東のタイルに到達すると、BFSよりも残りのコストは少なくなる。
+構造
+- AIシミュレーションではMonoBehaviourとUnityゲームオブジェクトを使用する必要がないため、AI関連の計算用に特化したUnitBaseクラスが作成されました。
 
-TileInfoクラスは、cost、isTraversableなどのカスタムタイルプロパティを追加するためにTileBaseから継承されます。
+
+
+その他
+ユニットの到達可能なタイルの計算アルゴリズム
+- ユニットの到達可能なタイルを計算する際には、再計算を最小限に抑えるため、深さ優先探索（DFS）アルゴリズムより幅優先探索（BFS）アルゴリズムが選択されました。
+- 視覚化のため、例えDFSが北のタイルから処理され、東のタイルに到達すると、BFSよりも残りのコストは少なくなる。
+
+タイルマップ
+- TileInfoクラスは、cost、isTraversableなどのカスタムタイルプロパティを追加するためにTileBaseから継承されます。
 
 ====================================================================================================
